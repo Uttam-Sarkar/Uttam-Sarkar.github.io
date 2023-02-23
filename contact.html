@@ -3,43 +3,45 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Uttam Sarkar</title>
-	<link rel="stylesheet" type="text/css" href="CSS/contact.css">
+	<title>Contact Me</title>
+    <link rel="stylesheet" href="CSS/contact.css">
+    <!-- <link rel="stylesheet" href="CSS/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
 </head>
-<body>
-	<div class="hero">
-		<nav>
-			<h2 class="logo">Portfo<span>lio</span></h2>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="skill.html">Skill</a></li>
-				<li><a href="experience.html">Exprience</a></li>
-				<li><a href="education.html">Education</a></li>
-			</ul>
-			<a href="contact.html" class="btn">Contact</a>
-		</nav>
+<body class="dj bg-danger">
+    <div class="container"> 
+            <form class=" mt-5 bg-secondary p-sm-3" onsubmit="sendEmail(); reset(); return false;">
+            <h3 class="text-md-center text-white font-weigth-bold">GET IN TOUCH</h3>
+            <input type="text" id="name" class="form-control form-control-lg mt-1" placeholder="Your Name" required>
+            <input type="email" id="email" class="form-control mt-1" placeholder="Email Id" required>
+            <input type="text" id="phone" class="form-control mt-1" placeholder="Phone No." required>
+            <textarea class="form-control mt-1" id="message" name="text" placeholder="How I can help you?"></textarea>
+            <button type="submit" class="btn btn-primary m-2">Submit</button>            
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail()
+        {
+            Email.send({
+                Host : "smtp.elasticemail.com",  
+                Username : "uttamsarkar678@gmail.com",
+                Password : "68492347CC398C8964632E75277843089E34",
+                To : 'uttamsarkar2299@gmail.com',
+                From : document.getElementById("email").value,
+                Subject : "New Contact Form Portfolio",
+                Body : "Name: " + document.getElementById("name").value
+                + "<br> Email: " + document.getElementById("email").value
+                + "<br> Phone: " + document.getElementById("phone").value
+                 + "<br> Message: " + document.getElementById("message").value
 
-		<div class="content">
-			<h6>Social Media</h6>
-			<div class="btn">
+            }).then(
+            message => alert("Message Sent Succesfully")
+            );
 
-            <table cellpadding="0" cellspacing="0" class="es-table-not-adapt es-social">
-                <tr>
-                	<td align="center" valign="top"><a target="_blank" href="https://www.facebook.com"><img src="https://yooefi.stripocdn.email/content/assets/img/social-icons/logo-black/facebook-logo-black.png" alt="Fb" title="Facebook" height="80"></a></td>
-                    <td align="center" valign="top"><a target="_blank" href="https://www.twitter.com"><img src="https://yooefi.stripocdn.email/content/assets/img/social-icons/logo-black/twitter-logo-black.png" alt="Tw" title="Twitter" height="80"></a></td>
-                    <td align="center" valign="top"><a target="_blank" href="https://www.instagram.com"><img src="https://yooefi.stripocdn.email/content/assets/img/social-icons/logo-black/instagram-logo-black.png" alt="Ig" title="Instagram" height="80"></a></td>
-                    <td align="center" valign="top"><a target="_blank" href="https://youtu.be"><img src="https://yooefi.stripocdn.email/content/assets/img/social-icons/logo-black/youtube-logo-black.png" alt="Yt" title="Youtube" height="80"></a></td>
-                </tr>
-            </table>  
-            </div> 
-            <br>
-            <br>
-		
-			<h3>Email <br><span>s2010876149@ru.ac.bd </span></h3>                                                                                
-
-		</div>
-
-	</div>
+        }
+    </script>
 
 </body>
 </html>
